@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                git branch: 'main', url: 'https://github.com/ThiagoMaths/teste-api-ebac.git'
+                git branch: 'master', url: 'https://github.com/ThiagoMaths/teste-api-ebac.git'
                 sh 'npm install'
             }
         }
