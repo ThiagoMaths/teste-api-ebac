@@ -2,14 +2,15 @@ pipeline {
     agent any
 
     stages {
-           stage('Instalar dependencias') {
+        stage('Setup') {
             steps {
-             bat 'npm install'
+                git branch: 'main', url: 'https://github.com/ThiagoMaths/teste-api-ebac.git'
+                sh 'npm install'
             }
         }
-           stage('Executar Testes') {
+        stage('Test') {
             steps {
-                set '''NO_COLOR=1 npm test'''
+                sh 'NO_COLOR=1 npm test'
             }
         }
     }
